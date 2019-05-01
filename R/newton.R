@@ -88,7 +88,7 @@ newtonRaphson <- function(response, X, Y, Z, K, maxiter, gtol, ftol,
     
         # Find NR update vector by solving a linear system
         t0 <- proc.time()[3] 
-        dir <- -1 * as.vector(solve(hessian, gradient, tol = 1e-100)) 
+        dir <- -1 * as.vector(solve(hessian, gradient, tol = 1e-50)) 
         solveTime <- solveTime + proc.time()[3] - t0 
         # Measure grad norm as: sqrt(grad^T * H^-1 * grad)
         gradNorm <- as.numeric(sqrt(abs(crossprod(dir, gradient))))
