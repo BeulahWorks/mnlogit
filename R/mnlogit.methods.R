@@ -101,7 +101,7 @@ print.mnlogit <- function(x, digits = max(3, getOption("digits") - 2),
 # Extract the covariance matrix of the mnlogit object
 vcov.mnlogit <- function(object, ...)
 {
-    result <- solve(object$hessian, tol = 1e-25)
+    result <- solve(object$hessian, tol = 1e-50)
     return(result)
 }
 
